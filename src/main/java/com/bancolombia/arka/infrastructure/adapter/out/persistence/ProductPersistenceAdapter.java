@@ -3,6 +3,7 @@ package com.bancolombia.arka.infrastructure.adapter.out.persistence;
 
 import org.springframework.stereotype.Component;
 
+import com.bancolombia.arka.domain.model.Comment;
 import com.bancolombia.arka.domain.model.Product;
 import com.bancolombia.arka.domain.port.out.ProductRepositoryPort;
 import com.bancolombia.arka.infrastructure.adapter.out.persistence.entity.ProductEntity;
@@ -25,6 +26,11 @@ public class ProductPersistenceAdapter implements ProductRepositoryPort{
         Flux<ProductEntity> products = repository.findAll();
         return products.map(mapper::toModel);
     }
+
+    @Override
+    public Mono<String> findInOrderBestComment() {        
+        return repository.findInOrderBestComment();
+    }    
 
     @Override
     public Mono<Product> findById(String id) {
@@ -50,6 +56,12 @@ public class ProductPersistenceAdapter implements ProductRepositoryPort{
             return true;
         }
         return false;
+    }
+
+    @Override
+    public Flux<Comment> findCommentsByIdProduct(String id) {
+        System.out.println(id);
+        return repository.findCommentsByProductId(id);
     }
     
 }

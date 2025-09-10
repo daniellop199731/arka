@@ -17,6 +17,7 @@ public class ProductMapper {
         product.setId(productEntity.getId());
         product.setName(productEntity.getName());
         product.setPrice(productEntity.getPrice());
+        product.setComments(productEntity.getComments());
 
         return product;
     }
@@ -30,6 +31,7 @@ public class ProductMapper {
         productEntity.setId(product.getId());
         productEntity.setName(product.getName());
         productEntity.setPrice(product.getPrice());
+        productEntity.setComments(product.getComments());
 
         return productEntity;
     }

@@ -1,5 +1,6 @@
 package com.bancolombia.arka.domain.port.in;
 
+import com.bancolombia.arka.domain.model.Comment;
 import com.bancolombia.arka.domain.model.Product;
 
 import reactor.core.publisher.Flux;
@@ -9,5 +10,7 @@ public interface ProductUseCase {
 
     Mono<Product> save(Product product);
     Flux<Product> getAllProducts();
+    Mono<String> findInOrderBestComment();
+    Flux<Comment> findCommentsByIdProduct(String id);
     
 }

@@ -2,6 +2,7 @@ package com.bancolombia.arka.application.useCase;
 
 import org.springframework.stereotype.Service;
 
+import com.bancolombia.arka.domain.model.Comment;
 import com.bancolombia.arka.domain.model.Product;
 import com.bancolombia.arka.domain.port.in.ProductUseCase;
 import com.bancolombia.arka.domain.port.out.ProductRepositoryPort;
@@ -24,6 +25,16 @@ public class ProductApplicationService implements ProductUseCase{
     @Override
     public Flux<Product> getAllProducts() {
         return repositoryPort.findAll();
+    }
+
+    @Override
+    public Mono<String> findInOrderBestComment() {
+        return repositoryPort.findInOrderBestComment();
+    }
+
+    @Override
+    public Flux<Comment> findCommentsByIdProduct(String id) {
+        return repositoryPort.findCommentsByIdProduct(id);
     }
     
 }
