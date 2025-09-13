@@ -1,1 +1,3 @@
 rootProject.name = 'arka'
+
+include 'eureka-server'
