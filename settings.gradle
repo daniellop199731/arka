@@ -1,3 +1,4 @@
 rootProject.name = 'arka'
 
 include 'eureka-server'
+include 'api-gateway'
